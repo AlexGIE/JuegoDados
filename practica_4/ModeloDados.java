@@ -16,7 +16,8 @@ public class ModeloDados {
     int limiteSuperiorDados = 6;
     int dado1, dado2 = 0;
     int sumaDados = 0;
-    //int dado2 = 0;
+    //int dado2;
+//otra prueba
 
     public int getSumaDados() {
         return sumaDados;
