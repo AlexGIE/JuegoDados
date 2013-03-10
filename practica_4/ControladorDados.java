@@ -11,7 +11,6 @@ package practica_4;
 public class ControladorDados {
 
     ModeloDados modelo;
-	//añado comentario de prueba
 
     ControladorDados(ModeloDados modelo) {
         this.modelo = modelo;
