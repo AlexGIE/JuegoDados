@@ -18,7 +18,8 @@ public class Practica_4 {
         ModeloDados modelo = new ModeloDados();
         ControladorDados controlador = new ControladorDados(modelo);
         VistaDados vista = new VistaDados(controlador);
-        vista.setVisible(true);
+  
+                
         
     }
 }

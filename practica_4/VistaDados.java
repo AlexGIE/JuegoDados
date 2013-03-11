@@ -36,6 +36,8 @@ public class VistaDados extends javax.swing.JFrame {
         dado2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         listaApuesta = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        jSuma = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,32 +65,41 @@ public class VistaDados extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Suma:");
+
+        jSuma.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(51, 51, 51)
-                        .addComponent(listaApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(dado1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(216, 216, 216)
+                        .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE))
-                            .addComponent(dado2, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                        .addGap(207, 207, 207))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(391, Short.MAX_VALUE)
-                .addComponent(botonLanzaDados, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3)
+                                .addGap(51, 51, 51)
+                                .addComponent(listaApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(dado1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(216, 216, 216)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE))
+                                    .addComponent(dado2, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                                .addGap(56, 56, 56)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jSuma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(391, Short.MAX_VALUE)
+                        .addComponent(botonLanzaDados, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(110, 110, 110))
         );
         layout.setVerticalGroup(
@@ -97,11 +108,13 @@ public class VistaDados extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(88, 88, 88)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dado1)
-                    .addComponent(dado2))
+                    .addComponent(dado2)
+                    .addComponent(jSuma))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -129,6 +142,8 @@ public class VistaDados extends javax.swing.JFrame {
         String stringDado2 = convierteAString(controlador.mostrarDado2());
         dado1.setText(stringDado1);
         dado2.setText(stringDado2);
+        
+        sumarDados(stringDado1, stringDado2);
 
     }//GEN-LAST:event_botonLanzaDadosActionPerformed
 
@@ -137,16 +152,17 @@ public class VistaDados extends javax.swing.JFrame {
     }//GEN-LAST:event_listaApuestaActionPerformed
 
     void sumarDados(String stringDado1, String stringDado2) {
-        int numApostado = 0;
-        String stringApostado;
-        //getApuesta
-        //numApostado = Integer.parseInt(listaApuesta.getSelectedItem());
+        int numApostado, resultadoSuma;
+        String stringApostado, rdoSumaString;
+     
         stringApostado = (String) listaApuesta.getSelectedItem();
         numApostado = Integer.parseInt(stringApostado);
-        controlador.compruebaResultado(numApostado);
-//--------------------------------------------------------------------07/03/13
-        //Convertirlo a string y mostrarlo
-        //cambiar la etiqueta con la apuesta PARA Q salga numApostado
+        
+        resultadoSuma = controlador.compruebaResultado(numApostado);
+        rdoSumaString = convierteAString(resultadoSuma);
+        
+        jSuma.setText(rdoSumaString);
+
 
 
 
@@ -208,6 +224,8 @@ public class VistaDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jSuma;
     private javax.swing.JComboBox listaApuesta;
     // End of variables declaration//GEN-END:variables
 }
