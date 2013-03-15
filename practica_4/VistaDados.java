@@ -4,6 +4,13 @@
  */
 package practica_4;
 
+import java.awt.Component;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Alex
@@ -11,13 +18,26 @@ package practica_4;
 public class VistaDados extends javax.swing.JFrame {
 
     ControladorDados controlador;
+   //  Estadistica estadistica = new Estadistica(controlador);
+    private Component vista;
+    
+    private ImageIcon imagenDado1 = new ImageIcon("Imagenes" + File.separator + "dado-1-imagen.png");
+    private ImageIcon imagenDado2 = new ImageIcon("Imagenes" + File.separator + "dado-2-imagen.png");
+    private ImageIcon imagenDado3 = new ImageIcon("Imagenes" + File.separator + "dado-3-imagen.png");
+    private ImageIcon imagenDado4 = new ImageIcon("Imagenes" + File.separator + "dado-4-imagen.png");
+    private ImageIcon imagenDado5 = new ImageIcon("Imagenes" + File.separator + "dado-5-imagen.png");
+    private ImageIcon imagenDado6 = new ImageIcon("Imagenes" + File.separator + "dado-6-imagen.png");
+    
+    
 
     public VistaDados() {
         initComponents();
     }
 
-    VistaDados(ControladorDados controlador) {
+    public VistaDados(ControladorDados controlador) {
         this.controlador = controlador;
+        initComponents();
+        setVisible(true);
     }
 
     /**
@@ -29,6 +49,10 @@ public class VistaDados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         botonLanzaDados = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -38,8 +62,30 @@ public class VistaDados extends javax.swing.JFrame {
         listaApuesta = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jSuma = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jGanaPierde = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPuntosApostados = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Juego Dados - Practica 4");
+        setResizable(false);
 
         botonLanzaDados.setText("Lanzar dados");
         botonLanzaDados.addActionListener(new java.awt.event.ActionListener() {
@@ -48,15 +94,20 @@ public class VistaDados extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Dado 1: ");
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setText("Dado 1 ");
+        jLabel1.setToolTipText("");
 
-        jLabel2.setText("Dado 2: ");
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel2.setText("Dado 2");
 
-        dado1.setText("0");
+        dado1.setToolTipText("");
 
         dado2.setText("0");
 
-        jLabel3.setText("Apuesta: ");
+        jLabel3.setText("Numero Apostado:");
 
         listaApuesta.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"2", "3", "4","5","6","7","8","9","10","11","12" }));
         listaApuesta.addActionListener(new java.awt.event.ActionListener() {
@@ -65,85 +116,207 @@ public class VistaDados extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 51, 51));
         jLabel4.setText("Suma:");
 
+        jSuma.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        jSuma.setForeground(new java.awt.Color(0, 153, 255));
         jSuma.setText("0");
+
+        jLabel5.setText("RESULTADO: ");
+
+        jLabel6.setText("Puntos a apostar: ");
+
+        jPuntosApostados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPuntosApostadosActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Estadísticas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jMenu3.setText("Archivo");
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setText("Nuevo Juego");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem3);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem2.setText("Salir");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Ayuda");
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setText("Informacion");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem4);
+
+        jMenuItem5.setText("Acerca de");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem5);
+
+        jMenuBar2.add(jMenu4);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(botonLanzaDados, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(dado1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(165, 165, 165)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(dado2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(252, 252, 252)
+                                        .addComponent(jSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(201, 201, 201)
+                                        .addComponent(jLabel4)))
+                                .addGap(10, 10, 10)))
+                        .addGap(229, 229, 229))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(51, 51, 51)
                                 .addComponent(listaApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE))
+                                .addGap(59, 59, 59)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPuntosApostados, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(dado1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(216, 216, 216)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE))
-                                    .addComponent(dado2, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
-                                .addGap(56, 56, 56)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jSuma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(391, Short.MAX_VALUE)
-                        .addComponent(botonLanzaDados, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(110, 110, 110))
+                                        .addGap(125, 125, 125)
+                                        .addComponent(jGanaPierde, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(309, 309, 309))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(620, 620, 620)))
+                                .addComponent(jButton1)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(88, 88, 88)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dado1)
-                    .addComponent(dado2)
-                    .addComponent(jSuma))
-                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
+                        .addGap(88, 88, 88)
+                        .addComponent(dado1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dado2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(listaApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                    .addComponent(listaApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jPuntosApostados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(botonLanzaDados, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jGanaPierde, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jButton1)))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonLanzaDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLanzaDadosActionPerformed
-        /* String stringDado1 = String.valueOf(controlador.lanzaDado());
-        String stringDado2 = String.valueOf(controlador.lanzaDado());
-        dado1.setText(stringDado1);
-        dado2.setText(stringDado2);
-        
-        sumarDados(stringDado1, stringDado2);*/
-
-
+      
 
         controlador.jugar();
-        String stringDado1 = convierteAString(controlador.mostrarDado1());
-        String stringDado2 = convierteAString(controlador.mostrarDado2());
-        dado1.setText(stringDado1);
-        dado2.setText(stringDado2);
+        //String stringDado1 = convierteAString(controlador.mostrarDado1());
+        //String stringDado2 = convierteAString(controlador.mostrarDado2());
+        //dado1.setText(stringDado1);
+        //dado2.setText(stringDado2);
         
-        sumarDados(stringDado1, stringDado2);
+        int dado_1 = controlador.mostrarDado1();
+        int dado_2 = controlador.mostrarDado2();
+        
+   
+        switch (dado_1){
+            
+            case 1:dado1.setIcon(imagenDado1);break;
+            case 2:dado1.setIcon(imagenDado2);break;
+            case 3:dado1.setIcon(imagenDado3);break;
+            case 4:dado1.setIcon(imagenDado4);break;
+            case 5:dado1.setIcon(imagenDado5);break;
+            case 6:dado1.setIcon(imagenDado6);break;
+                
+        }
+        
+        switch (dado_2){
+            
+            case 1:dado2.setIcon(imagenDado1);break;
+            case 2:dado2.setIcon(imagenDado2);break;
+            case 3:dado2.setIcon(imagenDado3);break;
+            case 4:dado2.setIcon(imagenDado4);break;
+            case 5:dado2.setIcon(imagenDado5);break;
+            case 6:dado2.setIcon(imagenDado6);break;
+                
+        }
+        
+       
+
+        sumarDados();
 
     }//GEN-LAST:event_botonLanzaDadosActionPerformed
 
@@ -151,34 +324,115 @@ public class VistaDados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_listaApuestaActionPerformed
 
-    void sumarDados(String stringDado1, String stringDado2) {
-        int numApostado, resultadoSuma;
-        String stringApostado, rdoSumaString;
-     
-        stringApostado = (String) listaApuesta.getSelectedItem();
-        numApostado = Integer.parseInt(stringApostado);
+    private void jPuntosApostadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPuntosApostadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPuntosApostadosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+       Estadistica estadistica = new Estadistica(controlador);
+        //Queremos una nueva ventana con las estadisticas
+            //Llamar al jframe Estadistica
+       // mostrar
+        estadistica.setVisible(true);
+       //---------------------!!! estadistica.HIDE_ON_CLOSE;
+        estadistica.cambiarEtiquetas();     
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
         
-        resultadoSuma = controlador.compruebaResultado(numApostado);
+   
+        JOptionPane.showMessageDialog(vista,"Las estadisticas y sus puntos han sido reiniciados.", "Informacion", 1);//no usar el 1, hay una constante
+        controlador.reiniciarJuego();
+        dado1.setText("0");
+        dado2.setText("0");
+        jSuma.setText("0");
+        jGanaPierde.setText("JUEGO REINICIADO");
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(vista, "Aplicacion creada por Sara Alamo y Alejandro de Luz\n"
+                + "                    Practica 4    \n"
+                +"                           GIE\n","Acerca de", 1);
+       
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        int respuesta;
+        respuesta = JOptionPane.showConfirmDialog(vista, "¿Esta seguro que desea salir?","Advertencia",2);//PONER ICONO DE ERROR
+        
+        if (respuesta == 0){
+            //Acabar la aplicacion
+            System.exit(0);
+        }
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        
+             JOptionPane.showMessageDialog(vista, "Esta aplicacion consiste en un simple juego de dados,\n "
+                     + "Las reglas son:\n"
+                     + "1. Primero ha de seleccionar a que numero apuesta.\n"
+                     + "2. Escoga su apuesta, empieza con 1000 puntos.\n"
+                     + "3. Si gana se le sumara el doble de puntos apostados.\n"
+                     + "4. Si pierde perdera los puntos apostados\n", "Informacion", 1);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    void sumarDados() {
+        int resultadoSuma;
+        String rdoSumaString;
+
+
+        resultadoSuma = controlador.mostrarSumaDados();
         rdoSumaString = convierteAString(resultadoSuma);
-        
+
         jSuma.setText(rdoSumaString);
 
-
-
+        compruebaRdo();
 
     }
-    
-    int convierteAInt (String texto){
+
+    void compruebaRdo() {
+
+        String stringApostado = String.valueOf(listaApuesta.getSelectedItem());
+        int numApostado = convierteAInt(stringApostado);
+
+        int compruebaSuma = controlador.compruebaResultado(numApostado);//devuelve 1 o 0
+        if (compruebaSuma == 1) {
+            jGanaPierde.setText("HAS GANADO");
+        } else {
+            jGanaPierde.setText("HAS PERDIDO");
+        }
+
+        gestionarPuntos(compruebaSuma);
+    }
+
+    void gestionarPuntos(int comprueba) {
         
+        int apuesta = convierteAInt(jPuntosApostados.getText());
+     //   String stringApuesta 
+        
+        controlador.gestionaApuesta(apuesta);
+        System.out.println(controlador.mostrarPuntos());
+    }
+
+    int convierteAInt(String texto) {
+
         return Integer.parseInt(texto);
-        
+
     }
-    
-    String convierteAString (int numero){
-        
+
+    String convierteAString(int numero) {
+
         return String.valueOf(numero);
     }
-    
 
     /**
      * @param args the command line arguments
@@ -209,7 +463,6 @@ public class VistaDados extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-
             @Override
             public void run() {
                 new VistaDados().setVisible(true);
@@ -221,10 +474,26 @@ public class VistaDados extends javax.swing.JFrame {
     private javax.swing.JButton botonLanzaDados;
     private javax.swing.JLabel dado1;
     private javax.swing.JLabel dado2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jGanaPierde;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JTextField jPuntosApostados;
     private javax.swing.JLabel jSuma;
     private javax.swing.JComboBox listaApuesta;
     // End of variables declaration//GEN-END:variables

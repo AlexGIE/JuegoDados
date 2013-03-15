@@ -4,6 +4,8 @@
  */
 package practica_4;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Alex
@@ -18,6 +20,8 @@ public class Practica_4 {
         ModeloDados modelo = new ModeloDados();
         ControladorDados controlador = new ControladorDados(modelo);
         VistaDados vista = new VistaDados(controlador);
+        
+        
   
                 
         

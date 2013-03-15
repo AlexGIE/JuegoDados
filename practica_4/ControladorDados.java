@@ -30,12 +30,20 @@ public class ControladorDados {
     }
     //este metodo devuelve 1 si gana el dado 1 y 0 si gana el dado 2
     //la vista segun lo que reciba lanzara un aviso u otro de perder o ganar
+
     int mostrarSumaDados() {
-        
+
         return modelo.sumaDados();
     }
-    
-    
+
+    int mostrarPuntos() {
+        return modelo.getPuntosActuales();
+    }
+
+    void gestionaApuesta(int apuesta) {
+        modelo.gestionaApuesta(apuesta);
+    }
+
     int compruebaResultado(int numeroApostado) {
 
         //Pasarlo a inst y darselo al modelo para sumar
@@ -47,4 +55,19 @@ public class ControladorDados {
 
 
     }
+
+    int mostrarRondasGanadas() {
+        return modelo.getRondasGanadas();
+
+    }
+
+    int mostrarRondasPerdidas() {
+        return modelo.getRondasPerdidas();
+
+    }
+
+    void reiniciarJuego() {
+        modelo.reiniciarJuego();
+    }
+
 }

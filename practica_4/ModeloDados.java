@@ -16,10 +16,19 @@ public class ModeloDados {
     int limiteSuperiorDados = 6;
     int dado1, dado2 = 0;
     int sumaDados = 0;
+    int siGana = 0;
+    int puntosActuales = 1000;
+    private int rondasGanadas = 0;
+    private int rondasPerdidas = 0;
+   
     //int dado2 = 0;
 
     public int getSumaDados() {
         return sumaDados;
+    }
+
+    public int getPuntosActuales() {
+        return puntosActuales;
     }
 
     public void setSumaDados(int sumaDados) {
@@ -77,9 +86,36 @@ public class ModeloDados {
 
     public int compruebaDados(int numeroApostado) {
         if (sumaDados == numeroApostado) {
-            return 1;
+             siGana = 1;
         } else {
-            return 0;
+            siGana = 0;
         }
+        return siGana;
+    }
+
+    public int getRondasGanadas() {
+        return rondasGanadas;
+    }
+
+    public int getRondasPerdidas() {
+        return rondasPerdidas;
+    }
+    void gestionaApuesta(int cantidadApostada){
+        
+        if (siGana == 1){
+            puntosActuales += cantidadApostada *2;
+            rondasGanadas++;
+        }
+        else if (siGana == 0){
+            puntosActuales -= cantidadApostada;
+            rondasPerdidas++;
+        }
+    }
+
+    void reiniciarJuego() {
+        puntosActuales = 1000;
+        rondasGanadas = 0;
+        rondasPerdidas = 0;
+        
     }
 }
